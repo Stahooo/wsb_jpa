@@ -1,6 +1,7 @@
 package com.jpacourse.persistence.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -25,9 +26,8 @@ public class VisitEntity {
 	@JoinColumn(name = "patient_id", nullable = false)
 	private PatientEntity patient;
 
-	@ManyToOne // Relacja jednostronna od strony dziecka (Visit) do rodzica (MedicalTreatment)
-	@JoinColumn(name = "treatment_id", nullable = false)
-	private MedicalTreatmentEntity treatment;
+	@OneToMany(mappedBy = "visit", cascade = CascadeType.ALL) // Relacja dwustronna z MedicalTreatment
+	private List<MedicalTreatmentEntity> treatments;
 
 	public Long getId() {
 		return id;

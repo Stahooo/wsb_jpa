@@ -16,12 +16,13 @@ INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient
                                                                                                                    (1, 'Piotr', 'Zielinski', '111222333', 'piotr.zielinski@test.com', 'PAT123', '1990-05-15', 1),
                                                                                                                    (2, 'Maria', 'Kowalska', '444555666', 'maria.kowalska@test.com', 'PAT456', '1985-08-20', 2);
 
--- Dane dla MedicalTreatment
-INSERT INTO medical_treatment (id, description, type) VALUES
-                                                           (1, 'Chirurgia serca', 'Chirurgia'),
-                                                           (2, 'Terapia', 'Terapia');
 
 -- Dane dla Visit
-INSERT INTO visit (id, description, time, doctor_id, patient_id, treatment_id) VALUES
-                                                                                    (1, 'Kontrola', '2024-11-20 10:00:00', 1, 1, 2),
-                                                                                    (2, 'Leczenie specjalistyczne', '2024-11-21 15:00:00', 2, 2, 1);
+INSERT INTO visit (id, description, time, doctor_id, patient_id) VALUES
+                                                                                   (1, 'Kontrola', '2024-11-20 10:00:00', 1, 1),
+                                                                                   (2, 'Leczenie specjalistyczne', '2024-11-21 15:00:00', 2, 2);
+
+-- Dane dla MedicalTreatment
+INSERT INTO medical_treatment (id, description, type, visit_id) VALUES
+                                                           (1, 'Chirurgia serca', 'Chirurgia', 1),
+                                                           (2, 'Terapia', 'Terapia', 2);
