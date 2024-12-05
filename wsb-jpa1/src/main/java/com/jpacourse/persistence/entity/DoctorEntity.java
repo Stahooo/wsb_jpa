@@ -31,11 +31,11 @@ public class DoctorEntity {
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
 
-	@OneToOne(cascade = CascadeType.ALL) // Relacja jednostronna z Address
+	@OneToOne(cascade = CascadeType.ALL) // Relacja dwustronna z Address
 	@JoinColumn(name = "address_id", nullable = false)
 	private AddressEntity address;
 
-	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL) // Relacja dwustronna z Visit
+	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL) // Relacja jednostronna od Visit
 	private List<VisitEntity> visits;
 
 	public Long getId() {

@@ -19,6 +19,9 @@ public class MedicalTreatmentEntity {
 	@Enumerated(EnumType.STRING)
 	private TreatmentType type;
 
+	@OneToMany(mappedBy = "treatment", cascade = CascadeType.ALL) // Jednostronna od Visit
+	private List<VisitEntity> visits;
+
 	public Long getId() {
 		return id;
 	}

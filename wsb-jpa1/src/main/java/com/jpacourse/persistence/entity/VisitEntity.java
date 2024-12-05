@@ -17,15 +17,15 @@ public class VisitEntity {
 	@Column(nullable = false)
 	private LocalDateTime time;
 
-	@ManyToOne // Relacja dwustronna z Doctor
+	@ManyToOne // Jednostronna od Doctor
 	@JoinColumn(name = "doctor_id", nullable = false)
 	private DoctorEntity doctor;
 
-	@ManyToOne // Relacja dwustronna z Patient
+	@ManyToOne // Jednostronna od Patient
 	@JoinColumn(name = "patient_id", nullable = false)
 	private PatientEntity patient;
 
-	@ManyToOne // Relacja jednostronna od strony dziecka (Visit) do rodzica (MedicalTreatment)
+	@ManyToOne // Jednostronna od MedicalTreatment
 	@JoinColumn(name = "treatment_id", nullable = false)
 	private MedicalTreatmentEntity treatment;
 

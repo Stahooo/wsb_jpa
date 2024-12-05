@@ -30,11 +30,11 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
-	@OneToOne(cascade = CascadeType.ALL) // Relacja jednostronna z Address
+	@ManyToOne // Dwustronna z Address
 	@JoinColumn(name = "address_id", nullable = false)
 	private AddressEntity address;
 
-	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL) // Relacja dwustronna z Visit
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL) // Jednostronna od Visit
 	private List<VisitEntity> visits;
 
 	public Long getId() {

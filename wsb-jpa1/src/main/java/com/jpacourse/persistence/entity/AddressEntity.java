@@ -19,6 +19,12 @@ public class AddressEntity {
 
 	private String postalCode;
 
+	@OneToOne(mappedBy = "address") // Dwustronna z Doctor
+	private DoctorEntity doctor;
+
+	@OneToMany(mappedBy = "address", cascade = CascadeType.ALL) // Dwustronna z Patient
+	private List<PatientEntity> patients;
+
 	public Long getId() {
 		return id;
 	}
