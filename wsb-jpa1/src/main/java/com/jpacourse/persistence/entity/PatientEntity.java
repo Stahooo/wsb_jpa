@@ -30,7 +30,7 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
-	@ManyToOne // Relacja dwustronna z Address
+	@OneToOne // Relacja jednostronna z Address
 	@JoinColumn(name = "address_id", nullable = false)
 	private AddressEntity address;
 

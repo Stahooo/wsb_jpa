@@ -31,7 +31,7 @@ public class DoctorEntity {
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
 
-	@OneToOne(cascade = CascadeType.ALL) // Relacja dwustronna z Address
+	@OneToOne(cascade = CascadeType.ALL) // Relacja jednostronna z Address
 	@JoinColumn(name = "address_id", nullable = false)
 	private AddressEntity address;
 
