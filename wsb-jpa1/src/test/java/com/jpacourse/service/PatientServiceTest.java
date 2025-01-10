@@ -1,6 +1,7 @@
 package com.jpacourse.service;
 
 import com.jpacourse.dto.PatientTO;
+import com.jpacourse.dto.VisitTO;
 import com.jpacourse.persistence.dao.AddressDao;
 import com.jpacourse.persistence.dao.DoctorDao;
 import com.jpacourse.persistence.dao.VisitDao;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -67,5 +70,17 @@ class PatientServiceTest {
         assertThat(patient.getAddress()).isEqualToComparingFieldByField(addressDao.findOne(1L));
         assertThat(patient.getVisits()).size().isEqualTo(1);
         assertThat(patient.isWoman()).isEqualTo(false);
+    }
+
+    @Test
+    public void testFindAllVisitsByPatientID_ReturnsVisitList(){
+        //given
+        long patientId = 2L;
+        //when
+        List<VisitTO> result = patientService.findAllVisitsByPatientId(patientId);
+        //then
+        assertThat(result).isNotNull();
+        assertThat(result.size()).isEqualTo(6);
+        assertThat(result.get(0)).isInstanceOf(VisitTO.class);
     }
 }

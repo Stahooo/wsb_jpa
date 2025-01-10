@@ -5,6 +5,10 @@ import java.util.List;
 
 import javax.persistence.*;
 
+@NamedQueries({
+		@NamedQuery(name = "PatientEntity.findByLastName",
+		query = "SELECT p FROM PatientEntity p WHERE p.lastName = :lastName")
+})
 @Entity
 @Table(name = "PATIENT")
 public class PatientEntity {
