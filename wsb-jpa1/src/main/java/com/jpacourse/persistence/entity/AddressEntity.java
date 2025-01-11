@@ -11,6 +11,9 @@ public class AddressEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Version
+	private Long version;
+
 	private String city;
 
 	private String addressLine1;
@@ -59,4 +62,11 @@ public class AddressEntity {
 		this.postalCode = postalCode;
 	}
 
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
 }

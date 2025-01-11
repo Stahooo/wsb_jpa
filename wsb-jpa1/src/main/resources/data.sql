@@ -2,10 +2,10 @@
 --             values (1, 'xx', 'yy', 'city', '62-030');
 
 -- Dane dla Address
-INSERT INTO address (id, city, address_line1, address_line2, postal_code) VALUES
-                                                                             (1, 'Warsaw', 'Ulica Krótka 1', NULL, '00-001'),
-                                                                             (2, 'Krakow', 'Ulica Długa 15', 'Apt. 5', '30-001'),
-                                                                             (3, 'Krakow', 'Ulica Długa 16', 'Apt. 7', '30-001');
+INSERT INTO address (id, city, address_line1, address_line2, postal_code, version) VALUES
+                                                                             (1, 'Warsaw', 'Ulica Krótka 1', NULL, '00-001', 0),
+                                                                             (2, 'Krakow', 'Ulica Długa 15', 'Apt. 5', '30-001', 0),
+                                                                             (3, 'Krakow', 'Ulica Długa 16', 'Apt. 7', '30-001', 0);
 
 -- Dane dla Doctor
 INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_number, specialization, address_id) VALUES
